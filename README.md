@@ -1,11 +1,18 @@
 # shader-backgrounds
 
-Small shader-based background library built on [OGL](https://github.com/oframe/ogl). It provides:
+A Simple Web Component that allows setting of WebGL shader-based backgrounds for other DOM elements.
 
-- A lightweight plugin interface (`ShaderPlugin`)
-- A canvas renderer (`ShaderCanvas`)
-- A web component (`<shader-background>`) for easy page backgrounds
-- A set of built-in background plugins
+[Kapture 2025-12-22 at 20.31.22.webm](https://github.com/user-attachments/assets/40047c24-3c0f-467b-82ba-e614954d4746)
+
+[Kapture 2025-12-22 at 20.34.55.webm](https://github.com/user-attachments/assets/a7583eb5-89c8-4fb0-aa10-eeaa9e0734ca)
+
+[Kapture 2025-12-22 at 20.37.31.webm](https://github.com/user-attachments/assets/911fd30f-30f8-405e-8bd5-cbbb217672b9)
+
+[Kapture 2025-12-22 at 20.38.44.webm](https://github.com/user-attachments/assets/d05e4299-4894-41f4-95ed-232ae56c9dde)
+
+[Kapture 2025-12-22 at 20.39.54.webm](https://github.com/user-attachments/assets/30912a87-a1f1-4307-9fc4-8a3cbdad4827)
+
+[Kapture 2025-12-22 at 20.42.40.webm](https://github.com/user-attachments/assets/29c6c031-e0a9-4a24-8be7-58dfac97cd3c)
 
 ## Install
 
