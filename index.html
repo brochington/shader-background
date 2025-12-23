@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Shader Library Demo</title>
+  <style>
+    body,
+    html {
+      margin: 0;
+      padding: 0;
+      width: 100%;
+      height: 100%;
+    }
+
+    .container {
+      width: 100vw;
+      height: 100vh;
+    }
+
+    .overlay {
+      width: 400px;
+      margin: 40px;
+      background: white;
+      padding: 20px;
+      font-family: sans-serif;
+      border-radius: 8px;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    }
+
+    .overlay-header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 10px;
+    }
+
+    .overlay-header h1 {
+      margin: 0;
+      font-size: 22px;
+      line-height: 1.2;
+    }
+
+    .overlay.collapsed {
+      width: 400px;
+      padding: 20px;
+      background: rgba(255, 255, 255, 0.92);
+      backdrop-filter: blur(8px);
+      -webkit-backdrop-filter: blur(8px);
+    }
+
+    .overlay.collapsed .overlay-content {
+      display: none;
+    }
+
+    .overlay-toggle {
+      padding: 6px 10px;
+      font-size: 13px;
+      border-radius: 999px;
+      white-space: nowrap;
+    }
+
+    .controls {
+      margin-top: 20px;
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+    }
+
+    .field {
+      display: flex;
+      flex-direction: column;
+      gap: 6px;
+      font-size: 14px;
+    }
+
+    .params {
+      padding: 10px;
+      border: 1px solid #eee;
+      border-radius: 6px;
+      background: #fafafa;
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+    }
+
+    .params h3 {
+      margin: 0;
+      font-size: 14px;
+    }
+
+    .row {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 10px;
+    }
+
+    select {
+      padding: 8px 10px;
+      border: 1px solid #ccc;
+      background: white;
+      border-radius: 4px;
+      cursor: pointer;
+      font-size: 14px;
+    }
+
+    input {
+      padding: 8px 10px;
+      border: 1px solid #ccc;
+      background: white;
+      border-radius: 4px;
+      font-size: 14px;
+    }
+
+    button {
+      padding: 8px 16px;
+      border: 1px solid #ccc;
+      background: white;
+      border-radius: 4px;
+      cursor: pointer;
+    }
+
+    button:hover {
+      background: #f5f5f5;
+    }
+  </style>
+</head>
+
+<body>
+
+  <div class="container">
+    <shader-background id="bg">
+      <div class="overlay">
+        <div class="overlay-header">
+          <h1>Shader Backgrounds</h1>
+          <button class="overlay-toggle" id="overlayToggle" type="button">Hide</button>
+        </div>
+        <div class="overlay-content">
+          <p>Using OGL + Web Components</p>
+          <div class="controls">
+          <label class="field">
+            <span>Plugin</span>
+            <select id="pluginSelect">
+              <option value="gradient" selected>Gradient</option>
+              <option value="grainy-fog">Grainy Fog</option>
+              <option value="retro-grid">Retro Grid</option>
+              <option value="liquid-orb">Liquid Orb</option>
+              <option value="caustics">Caustics</option>
+              <option value="aurora-waves">Aurora Waves</option>
+              <option value="soft-starfield">Soft Starfield</option>
+              <option value="contour-lines">Contour Lines</option>
+              <option value="dreamy-bokeh">Dreamy Bokeh</option>
+              <option value="ink-wash">Ink Wash</option>
+              <option value="stained-glass">Stained Glass</option>
+            </select>
+          </label>
+          <label class="field">
+            <span>Canvas Filter</span>
+            <select id="filterPreset">
+              <option value="none" selected>None</option>
+              <option value="saturate(1.2) contrast(1.05)">Pop</option>
+              <option value="blur(8px) saturate(1.1) brightness(1.05)">Soft Blur</option>
+              <option value="sepia(0.25) saturate(1.3) contrast(1.05)">Warm</option>
+              <option value="hue-rotate(45deg) saturate(1.2)">Hue Shift</option>
+              <option value="grayscale(0.25) contrast(1.2)">Muted</option>
+            </select>
+          </label>
+          <label class="field">
+            <span>Custom Filter (CSS)</span>
+            <input id="filterInput" placeholder="e.g. blur(6px) saturate(1.2)" />
+          </label>
+          <button onclick="applyFilter()">Apply Filter</button>
+
+          <div class="params">
+            <h3>Plugin Parameters</h3>
+            <div id="pluginParams"></div>
+          </div>
+          <button onclick="changeColors()">Change Colors</button>
+          <button onclick="toggleRenderScale()">Toggle Render Scale (0.5x)</button>
+          <button onclick="toggleSingleRender()">Toggle Single Render Mode</button>
+          <button onclick="manualRender()" id="manualRenderBtn" style="display: none;">Manual Render</button>
+          </div>
+        </div>
+      </div>
+    </shader-background>
+  </div>
+
+
+  <script type="module" src="/src/index.ts"></script>
+  <script type="module" src="/demo.js"></script>
+</body>
+
+</html>
