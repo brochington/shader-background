@@ -149,4 +149,11 @@ npm run build   # generate dist bundles + .d.ts
 npm run preview # preview Vite build
 ```
 
+### Demo (GitHub Pages)
+
+This repo’s demo (`index.html` + `demo.js`) can be deployed to GitHub Pages via GitHub Actions.
+
+- **Build the demo site**: `npm run build:demo` (outputs `dist-demo/`)
+- **Workflow**: `.github/workflows/deploy-demo-to-pages.yml`
+
 
