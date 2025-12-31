@@ -2907,6 +2907,9 @@ class Si extends HTMLElement {
   get renderScale() {
     return this.#r;
   }
+  get canvas() {
+    return this.#i;
+  }
   set singleRender(t) {
     this.#n = t, this.#t && (this.#t.stop(), this.#t.dispose(), this.#t = null), this.init();
   }

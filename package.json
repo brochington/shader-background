@@ -1,21 +1,33 @@
 {
   "name": "@brochington/shader-backgrounds",
-  "version": "0.1.1",
+  "version": "0.1.2",
   "type": "module",
   "main": "./dist/shader-backgrounds.umd.cjs",
   "module": "./dist/shader-backgrounds.js",
   "types": "./dist/index.d.ts",
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "import": "./dist/shader-backgrounds.js",
+      "require": "./dist/shader-backgrounds.umd.cjs"
+    }
+  },
+  "files": [
+    "dist",
+    "README.md",
+    "PLUGINS.md"
+  ],
   "scripts": {
     "dev": "vite",
-    "build": "tsc && vite build",
+    "build": "vite build && tsc --emitDeclarationOnly",
+    "typecheck": "tsc --noEmit",
     "build:demo": "vite build --config vite.demo.config.ts",
     "preview": "vite preview",
     "preview:demo": "vite preview --config vite.demo.config.ts"
   },
   "devDependencies": {
     "typescript": "^5.9.3",
-    "vite": "^7.3.0",
-    "vite-plugin-dts": "^4.5.4"
+    "vite": "^7.3.0"
   },
   "dependencies": {
     "ogl": "^1.0.11"

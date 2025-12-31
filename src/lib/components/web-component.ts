@@ -200,3 +200,19 @@ export class ShaderBackgroundElement extends HTMLElement {
 
 // Define the custom element
 customElements.define('shader-background', ShaderBackgroundElement);
+
+declare global {
+  interface HTMLElementTagNameMap {
+    'shader-background': ShaderBackgroundElement;
+  }
+
+  namespace JSX {
+    interface IntrinsicElements {
+      /**
+       * Web component wrapper around `ShaderCanvas`.
+       * Note: `plugin`, `renderScale`, and `singleRender` are set via the element instance/property API.
+       */
+      'shader-background': Record<string, unknown>;
+    }
+  }
+}
