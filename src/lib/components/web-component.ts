@@ -125,6 +125,10 @@ export class ShaderBackgroundElement extends HTMLElement {
     return this.#renderScale;
   }
 
+  get canvas() {
+    return this.#canvas;
+  }
+
   set singleRender(value: boolean) {
     this.#singleRender = value;
     if (this.#engine) {
